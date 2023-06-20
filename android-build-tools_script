@@ -1,0 +1,64 @@
+#!/bin/bash
+
+set -eu -o pipefail # fail on error and report it, debug all lines
+
+sudo -n true
+test $? -eq 0 || exit 1 "you should have sudo privilege to run this script"
+
+echo installing the android-build-tools
+while read -r p ; do sudo apt-get install -y $p ; done < <(cat << "EOF"
+    git-core
+    gnupg
+    flex
+    bison
+    build-essential
+    zip
+    curl
+    zlib1g-dev
+    libc6-dev-i386
+    libncurses5
+    lib32ncurses5-dev
+    x11proto-core-dev
+    libx11-dev 
+    lib32z1-dev 
+    libgl1-mesa-dev
+    libxml2-utils 
+    xsltproc 
+    unzip 
+    fontconfig
+    bc 
+    ccache 
+    g++-multilib 
+    gcc-multilib 
+    git 
+    git-lfs 
+    gperf
+    imagemagick 
+    lib32readline-dev  
+    libelf-dev 
+    liblz4-tool
+    libncurses5 
+    libncurses5-dev 
+    libsdl1.2-dev 
+    libssl-dev
+    libxml2 
+    lzop 
+    pngcrush 
+    rsync 
+    schedtool 
+    squashfs-tools 
+    xsltproc
+    python-is-python3
+    android-sdk-platform-tools-common
+    default-jre
+EOF
+)
+
+echo installing the android-build-tools
+echo you have 5 seconds to proceed ...
+echo or
+echo hit Ctrl+C to quit
+echo -e "\n"
+sleep 6
+
+sudo apt-get install -y tig
