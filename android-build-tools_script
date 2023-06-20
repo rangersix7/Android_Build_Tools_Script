@@ -61,4 +61,3 @@ echo hit Ctrl+C to quit
 echo -e "\n"
 sleep 6
 
-sudo apt-get install -y tig
